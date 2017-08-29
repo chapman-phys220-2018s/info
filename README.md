@@ -10,7 +10,7 @@ Welcome to the `PHYS220/MATH220/CPSC220` course information `README` file!  Refe
 
 ## Primary Course Links (Try here first)
 
- - [CoCalc](https://cocalc.org) <br/>
+ - [CoCalc](https://cocalc.com) <br/>
  Collaborative Calculation in the Cloud - free Ubuntu linux servers that we will use for the course.
  - [Slack (`scststudents`)](https://scststudents.slack.com) (Channel `#phys220-2017f`) <br/>
  Professional communication tool - industry standard chat application that we will use for the course.
