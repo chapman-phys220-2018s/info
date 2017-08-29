@@ -103,3 +103,38 @@ Connection to github.com closed.
 ~$
 ```
 The important statement is `You've successfully authenticated`. This means that GitHub understands your key properly, and you can communicate between your linux computer in the cloud, and the GitHub server in the cloud via `ssh`.  If you refresh your "SSH and GPG Keys" settings page in GitHub, you will now see your key has a green light next to it to indicate that the connection has been successfully confirmed.
+
+## Cloning the Information Repository
+
+As a check for the connection to GitHub and a demonstration that it works, using the Linux Terminal **m**a**k**e a new **dir**ectory to store `git` repositories using `mkdir`.
+```
+ ~$ mkdir ~/PHYS220/
+ ~$
+```
+**C**hange into that **d**irectory using `cd` and **l**i**s**t its contents with `ls`.
+```
+ ~$ cd PHYS220
+ ~/PHYS220$ ls
+ ~/PHYS220$
+```
+The prompt should simply return since the directory is initially empty.
+
+Go to your GitHub account in a different tab/window and find the information repository main page. In the upper right corner, you should see a green "Clone or Download" button. Click the button and it will open up a sub-panel with a clone link. There are two possible links, HTTPS or SSH. Make sure you choose SSH. Click on the copy button to copy the repository clone link to your clipboard.
+
+Return to your terminal and use `git clone` to clone the information repository to your directory "PHYS220". It should look something like:
+```
+ ~/PHYS220$ git clone git@github.com:chapman-phys220-2017f/info.git
+Cloning into 'info'...
+remote: Counting objects: 20, done.
+remote: Compressing objects: 100% (19/19), done.
+remote: Total 20 (delta 6), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (20/20), 131.57 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (6/6), done.
+Checking connectivity... done.
+~/PHYS220$ ls
+info
+~/PHYS220$
+``` 
+Now the list command `ls` shows that there is a new directory `info` that has been cloned from GitHub. You can confirm that it exists outside the terminal by going to the Files tab in your project and browsing around. The cloned files are now local inside your cloud computer, and can be viewed directly.
+
+The above procedure will be how you clone all classwork and homework repositories for the class. For more information about how GitHub works, see the [Git and GitHub Overview Slides](http://slides.com/profdressel/git-overview).
