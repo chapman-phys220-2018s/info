@@ -56,8 +56,50 @@ After you verify that your project has internet access (you can check the projec
 
 This login screen for the terminal gives a nice summary of all the useful software installed in your linux computer in the cloud, and suggests a good tutorial for how to use the bash shell.  (You can also find many more resources in this `info` repository in the course GitHub Organization. For a quick introduction, see the [Linux/Bash Overview Slides](http://slides.com/profdressel/linux-bash-overview).)
 
-To connect to GitHub, we first need to create `ssh` keys for your linux computer. To do this, type the following command into the terminal, and hit `Enter` four times (don't type the *prompt* characters `~$` - this is printed to let you know that you may type something):
+To connect to GitHub, we first need to create `ssh` keys for your linux computer. To do this, type the command `ssh-keygen` into the terminal, and hit `Enter` four times. It should look similar to what is below. (Note, the *prompt* characters `~$` simply let you know that you may type a command, and that you are in your `~` directory, known as "home" and equivalent to `/home/user`.)
 ```
  ~$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/user/.ssh/id_rsa):
+Created directory '/home/user/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/user/.ssh/id_rsa.
+Your public key has been saved in /home/user/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:9f4vJzDrftWXdG8Jo60UsqEd0yDd4mq3orslN9Ju/UQ user@project-1c8479d1-dc82-4b59-be53-b8f4bfb0b917
+The key's randomart image is:
++---[RSA 2048]----+
+|        . .      |
+|       . + .     |
+|        o =      |
+|         B + o ..|
+|        S *E= + *|
+|      .+ +.+o. o*|
+|     o.=o o.o+ o.|
+|      *o.o....+ .|
+|     +=.. .+o..=.|
++----[SHA256]-----+
+~$
 ```
-This will generate keys in the folder `~/.ssh/` that you can add to your GitHub account so that it knows who you are.
+This command has generated keys in the folder `~/.ssh/` (which is "hidden" since it starts with a `.`). 
+
+You can now add to your "public key" to your GitHub account so that it knows who you are when you try to connect. To do this, run the command `cat ~/.ssh/id_rsa.pub` in the terminal, to produce something like the following:
+```
+~$ cat ~/.ssh/id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDiZS980QbZ1T+GYJky8QbKDngbH9UxPNKOencPT8rtk6PgBuk7DQrNladts32isd49LpHDgbFJhV/UqY9JvTn9xPXEaGRcgJurbbuE6YKWmKQ5Xl6rl3nLrK+zv4/VL+v4p0wRit/JFbjqSHBE
+ni/TcO6dty3EaXH3o8eU/FCk+8kimoQqTnj/P8U/EHDySP0RvAC1k9LxrwKY22Az0J9kiZW7Mb6QJIZqu2mlVSpXQKcpiTEBUfOyWj9WyMiCPhtD0j/500CCAwwlQ2gNH8b3UGZpvxzlkT+wurvKknNGFKej/APpk/ehxbNzrni1oBFzCq/PVItq
+gaJMG9B6HgvH user@project-1c8479d1-dc82-4b59-be53-b8f4bfb0b917
+~$
+```
+The string beginning with `ssh-rsa` and ending with (in this case) `917` is your "public RSA key".  Highlight this string with the mouse and copy it (with the right-click menu). Go into your GitHub Account Settings (upper right corner menu on GitHub), then go to the settings tab "SSH and GPG Keys". Click on the button "New SSH Key" in the upper right, and paste your RSA key into the field labeled "Key". In the field labeled "Title", give your key a descriptive name so you know which key it is, for example, "CoCalc PHYS220 Key". Then click the confirmation button "Add SSH Key".
+
+To confirm that your key works, go back to your Bash Terminal in CoCalc, and type the command `ssh git@github.com`. This tries to log into GitHub via secure shell (ssh) using the account name `git` at the address `github.com`. You should see something like the following:
+```
+~$ ssh git@github.com
+PTY allocation request failed on channel 0
+Hi YOUR_GITHUB_USERNAME_HERE! You've successfully authenticated, but GitHub does not provide shell access.
+Connection to github.com closed.
+~$
+```
+The important statement is `You've successfully authenticated`. This means that GitHub understands your key properly, and you can communicate between your linux computer in the cloud, and the GitHub server in the cloud via `ssh`.  If you refresh your "SSH and GPG Keys" settings page in GitHub, you will now see your key has a green light next to it to indicate that the connection has been successfully confirmed.
