@@ -1,6 +1,6 @@
 # PHYS220 / MATH220 / CPSC220 Course Information
 
- - [Course Syllabus](syllabus-phys220-math220-cpsc220-2017f.pdf)
+ - [Course Syllabus](syllabus-phys220-math220-cpsc220-2018s.pdf)
  
 Welcome to the `PHYS220/MATH220/CPSC220` course information `README` file!  Refer to this information throughout the semester for helpful tutorials, references, and tips.  Please read the [Getting Started](GettingStarted.md) guide for orientation, including how to create accounts on Slack, GitHub, and CoCalc, and manage the homework/classwork work flow.
 
@@ -12,7 +12,7 @@ Welcome to the `PHYS220/MATH220/CPSC220` course information `README` file!  Refe
 
  - [CoCalc](https://cocalc.com) <br/>
  Collaborative Calculation in the Cloud - free Ubuntu linux servers that we will use for the course.
- - [Slack (`scststudents`)](https://scststudents.slack.com) (Channel `#phys220-2017f`) <br/>
+ - [Slack (`scststudents`)](https://scststudents.slack.com) (Channel `#phys220-2018s`) <br/>
  Professional communication tool - industry standard chat application that we will use for the course.
  - [Python/SciPy Tutorials](http://www.scipy-lectures.org) <br/>
  Official SciPy tutorials - primary `python` resource we will use for the course.
